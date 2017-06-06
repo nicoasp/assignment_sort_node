@@ -9,22 +9,25 @@ const mergeSort = arr => {
   return merge(mergeSort(leftArr), mergeSort(rightArr));
 };
 
-
-
 const merge = (leftArr, rightArr) => {
   let mergedArr = [];
 
   while (leftArr.length || rightArr.length) {
-    if (!leftArr.length) { mergedArr.push(rightArr.shift()); }
-    if (!rightArr.length) { mergedArr.push(rightArr.shift()); }
+    if (!leftArr.length) {
+      mergedArr.push(rightArr.shift());
+      continue;
+    }
+    if (!rightArr.length) {
+      mergedArr.push(leftArr.shift());
+      continue;
+    }
 
-    leftArr[0] < rightArr[0] ? mergedArr.push(leftArr.shift()) : mergedArr.push(rightArr.shift())
+    leftArr[0] < rightArr[0]
+      ? mergedArr.push(leftArr.shift())
+      : mergedArr.push(rightArr.shift());
   }
 
   return mergedArr;
 };
 
-
-
 module.exports = mergeSort;
-
