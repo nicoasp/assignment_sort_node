@@ -1,8 +1,5 @@
 
-const quickSortInPlace = (arr, start = 0, end = 0) => {
-  if (end <= 0) {
-    end = arr.length;
-  }
+const quickSortInPlace = (arr, start = 0, end = arr.length) => {
 
   if (end - start <= 1) {
     return;
