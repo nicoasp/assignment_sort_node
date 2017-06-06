@@ -5,11 +5,11 @@ const mergeSortUndefined = require('./mergeSortUndefined');
 const mergeSortRecursive = require('./mergeSortRecursive');
 
 let funcArray = [
-  // { name: 'Insertion', func: insertionSort },
-  { name: 'Bubble', func: bubbleSort }
-  // { name: 'Merge', func: mergeSort }
-  // { name: 'Merge Undef', func: mergeSortUndefined }
-  // { name: 'Merge Rec', func: mergeSortRecursive }
+  { name: 'Insertion', func: insertionSort },
+  { name: 'Bubble', func: bubbleSort },
+  { name: 'Merge', func: mergeSort },
+  { name: 'Merge Undef', func: mergeSortUndefined },
+  { name: 'Merge Rec', func: mergeSortRecursive }
 ];
 
 const benchmark = (arr, func) => {
@@ -42,7 +42,7 @@ for (let i = 1; i <= 1000; i++) {
   sorted.push(i);
 }
 let reverseSorted = [];
-for (let i = 100000; i >= 1; i--) {
+for (let i = 1000; i >= 1; i--) {
   reverseSorted.push(i);
 }
 let randomSmall = [];
@@ -66,16 +66,16 @@ const printCell = value => {
 
 const printBenchmark = () => {
   console.log(
-    printCell(''),
-    printCell('Sorted'),
-    printCell('ReverseSorted'),
-    printCell('RandomSmall'),
-    printCell('RandomBig')
+    printCell('') +
+      printCell('Sorted') +
+      printCell('ReverseSorted') +
+      printCell('RandomSmall') +
+      printCell('RandomBig')
   );
   funcArray.forEach(func => {
     let toPrint = [printCell(func.name)];
     testArrays.forEach(arr => {
-      toPrint.push(printCell(benchmark2(arr, func.func)));
+      toPrint.push(printCell(benchmark(arr, func.func)));
     });
     console.log(toPrint.join(''));
   });
