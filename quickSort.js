@@ -19,9 +19,11 @@ const quickSort = arr => {
   );
 };
 
-let randomSmall = [];
-for (let i = 1; i <= 100; i++) {
-  randomSmall.push(Math.floor(Math.random() * 100) + 1);
-}
+// let randomSmall = [];
+// for (let i = 1; i <= 100; i++) {
+//   randomSmall.push(Math.floor(Math.random() * 100) + 1);
+// }
 
-console.log(quickSort(randomSmall));
+// console.log(quickSort(randomSmall));
+
+module.exports = quickSort;

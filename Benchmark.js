@@ -3,6 +3,8 @@ const bubbleSort = require('./bubbleSort');
 const mergeSort = require('./mergeSort');
 const mergeSortUndefined = require('./mergeSortUndefined');
 const mergeSortRecursive = require('./mergeSortRecursive');
+const quickSort = require('./quickSort');
+const quickSortInPlace = require('./quickSortInPlace');
 
 let funcArray = [
   // { name: 'Insertion', func: insertionSort },

@@ -1,26 +1,3 @@
-// const quickSortInPlace = (arr, start = 0; end = 0) => {
-// 	if (arr.length < 2) { return arr; }
-// 	let pivot = arr[arr.length - 1];
-//
-// 	let pivotIndex = arr.length - 1;
-//
-// 	for (let i = arr.length - 2; i >= 0; i--) {
-// 		if (arr[i] > pivot) {
-// 			arr[pivotIndex] = arr[i];
-// 			for (let j = i; j <= pivotIndex; i++) {
-// 				arr[j] = arr[j + 1];
-// 			}
-// 			pivotIndex--;
-// 			arr[pivotIndex] = pivot;
-// 		}
-// 	}
-//
-//
-// 	quickSortInPlace(temp.slice(0, pivotIndex));
-// 	quickSortInPlace(temp.slice(pivotIndex + 1));
-//
-// 	return arr;
-// }
 
 const quickSortInPlace = (arr, start = 0, end = 0) => {
   if (end <= 0) {
@@ -45,21 +22,39 @@ const quickSortInPlace = (arr, start = 0, end = 0) => {
     }
   }
 
-  quickSortInPlace(arr, start, pivotIndex - 1);
-  quickSortInPlace(arr, pivotIndex + 1, end);
+  if (pivotIndex - 1 > start) {
+    quickSortInPlace(arr, start, pivotIndex);
+  }
+  if (pivotIndex < end - 2) {
+    quickSortInPlace(arr, pivotIndex + 1, end);
+  }
+  
 
   return arr;
 };
 
-let randomSmall = [];
-for (let i = 1; i <= 10; i++) {
-  randomSmall.push(Math.floor(Math.random() * 100) + 1);
-}
 
-//console.log(randomSmall);
-//console.log(quickSortInPlace(randomSmall));
+// let randomSmall = [];
+// for (let i = 1; i <= 10; i++) {
+//   randomSmall.push(Math.floor(Math.random() * 100) + 1);
+// }
 
-console.log(quickSortInPlace([4, 6, 2, 3, 1]));
+// console.log(quickSortInPlace(randomSmall));
+
+
+module.exports = quickSortInPlace;
+
+
+
+
+
+
+
+
+
+
+
+
 // const swap = (arr, index1, index2) => {
 //   let prov = arr[index1];
 //   arr[index1] = arr[index2];
